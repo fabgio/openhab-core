@@ -43,6 +43,8 @@ public final class SIUnits extends CustomUnits {
     public static final Unit<Temperature> CELSIUS = addUnit(Units.CELSIUS);
     public static final Unit<Speed> KILOMETRE_PER_HOUR = addUnit(Units.KILOMETRE_PER_HOUR);
     public static final Unit<Length> METRE = addUnit(Units.METRE);
+    // Millimetre an officially recognized SI derived unit support in UIs
+    public static final Unit<Length> MILLIMETRE = MetricPrefix.MILLI(METRE);
     public static final Unit<Mass> KILOGRAM = addUnit(Units.KILOGRAM);
     public static final Unit<Mass> GRAM = addUnit(Units.GRAM);
     public static final Unit<Area> SQUARE_METRE = addUnit(Units.SQUARE_METRE);
@@ -52,7 +54,8 @@ public final class SIUnits extends CustomUnits {
     static {
         // Override the default unit symbol ℃ to better support TTS and UIs:
         SimpleUnitFormat.getInstance().label(CELSIUS, "°C");
-
+        // mm an officially recognized SI derived prefix (symbol) support in UIs:
+        SimpleUnitFormat.getInstance().label(MILLIMETRE, "mm");
         // Add some single character glyphs as aliases to improve support of East Asian languages
         SimpleUnitFormat.getInstance().alias(CELSIUS, "℃");
         SimpleUnitFormat.getInstance().alias(METRE.multiply(0.001), "㎜");
